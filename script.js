@@ -6,7 +6,7 @@ function createGrid (size) {
         const square = document.createElement('div');
         square.classList.add("square");
         square.addEventListener('mouseover', function() {
-            this.style.backgroundColor = 'black';
+            this.style.backgroundColor = randomRGB();
         });
         const squareWidth = (container.offsetWidth-2)/size;
         square.style.flexBasis = `${squareWidth-2}px`;
@@ -31,4 +31,11 @@ function removeAllChildNodes(element){
     while(element.firstChild){
         element.removeChild(element.firstChild);
     }
+}
+
+const randomRGB = ()=> {
+    const r = Math.floor(Math.random()*256);
+    const g = Math.floor(Math.random()*256);
+    const b = Math.floor(Math.random()*256);
+    return `rgb(${r},${g},${b})`;
 }
